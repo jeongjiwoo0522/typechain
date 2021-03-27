@@ -12,6 +12,14 @@ class Block {
   static calculateBlockHash(index: number, previousHash: string, timestamp: number, data: string): string {
     return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
   } 
+
+  static validateStructure(aBlock: Block): boolean {
+    return typeof aBlock.index === "number"
+    && typeof aBlock.data === "string"
+    && typeof aBlock.hash === "string"
+    && typeof aBlock.previousHash === "string"
+    && typeof aBlock.timestamp === "number";
+  }
 }
 
 const genesisBlock: Block = new Block(0, "10101101010101001101010101001", "", "hello", (+new Date));
@@ -28,4 +36,4 @@ const createNewBlock = (data: string): Block => {
   const newTimeStamp: number = getNewTimeStamp();
   const nextHash: string = Block.calculateBlockHash(newIndex, previousBlock.hash, newTimeStamp, data);
   return new Block(newIndex, nextHash, previousBlock.hash, data, newTimeStamp);
-}
+};

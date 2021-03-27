@@ -14,10 +14,18 @@ class Block {
   } 
 }
 
-const genesisBlock: Block = new Block(0, "asklfjaskldfjsla", "", "hello", (+new Date));
+const genesisBlock: Block = new Block(0, "10101101010101001101010101001", "", "hello", (+new Date));
 
 let blockchain: Block[] = [genesisBlock];
 
 const getBlockchain = (): Block[] => blockchain;
 const getLatestBlock = (): Block => blockchain[blockchain.length - 1];
 const getNewTimeStamp = (): number => +new Date();
+
+const createNewBlock = (data: string): Block => {
+  const previousBlock: Block = getLatestBlock();
+  const newIndex: number = previousBlock.index + 1;
+  const newTimeStamp: number = getNewTimeStamp();
+  const nextHash: string = Block.calculateBlockHash(newIndex, previousBlock.hash, newTimeStamp, data);
+  return new Block(newIndex, nextHash, previousBlock.hash, data, newTimeStamp);
+}

@@ -16,4 +16,8 @@ class Block {
 
 const genesisBlock: Block = new Block(0, "asklfjaskldfjsla", "", "hello", (+new Date));
 
-const blockChain: Block[] = [genesisBlock];
+let blockchain: Block[] = [genesisBlock];
+
+const getBlockchain = (): Block[] => blockchain;
+const getLatestBlock = (): Block => blockchain[blockchain.length - 1];
+const getNewTimeStamp = (): number => +new Date();

@@ -1,0 +1,22 @@
+{
+  "name": "typechain",
+  "version": "1.0.0",
+  "description": "Sources - [nomadcoder](https://nomadcoders.co)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeongjiwoo0522/typechain.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeongjiwoo0522/typechain/issues"
+  },
+  "homepage": "https://github.com/jeongjiwoo0522/typechain#readme",
+  "dependencies": {
+    "typescript": "^4.2.3"
+  }
+}

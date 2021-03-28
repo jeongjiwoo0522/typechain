@@ -37,3 +37,7 @@ const createNewBlock = (data: string): Block => {
   const nextHash: string = Block.calculateBlockHash(newIndex, previousBlock.hash, newTimeStamp, data);
   return new Block(newIndex, nextHash, previousBlock.hash, data, newTimeStamp);
 };
+
+const getHashForBlock = (aBlock: Block): string => {
+  return Block.calculateBlockHash(aBlock.index, aBlock.previousHash, aBlock.timestamp, aBlock.data);
+}
